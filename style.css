@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap");
+
+:root {
+  --font-familiy: "Hanalei Fill", cursive;
+  --button-size: 2.5em;
+  --output-size: 3.4em;
+}
+
+body {
+  font-family: var(--font-familiy);
+  font-size: 2rem;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+}
+
+.calculator {
+  display: grid;
+  min-height: 100vh;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, var(--button-size));
+  grid-template-rows: minmax(var(--output-size), auto) repeat(
+      5,
+      var(--button-size)
+    );
+}
+
+.calculator > button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 2rem;
+  border: 1px solid white;
+  background-color: rgb(255, 255, 255, 0.7);
+  transition: background-color 250ms ease;
+  outline: none;
+}
+
+.calculator > button:hover {
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgb(0, 0, 0, 0.75);
+
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.4em;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output > * {
+  flex-basis: 100%;
+}
+
+.output .previous {
+  color: rgb(255, 255, 255, 0.7);
+  font-size: 0.7em;
+}
+
+.output .current {
+  color: white;
+}
